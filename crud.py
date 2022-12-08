@@ -11,7 +11,12 @@ def new_user(user_email, user_password):
 
 
 def new_brand(brand_name):
-    """"""
+    """Creates a new brand."""
+
+    brand = Brand(brand_name=brand_name)
+
+    return brand
+
 
 def new_sneaker(sneaker_name, sneaker_price, sneaker_description, release_date, sneaker_img_path):
     """Creates a new sneaker"""
@@ -19,6 +24,8 @@ def new_sneaker(sneaker_name, sneaker_price, sneaker_description, release_date, 
                      sneaker_description=sneaker_description,
                      release_date=release_date, sneaker_img_path=sneaker_img_path)
     return sneaker
+
+
 
 if __name__ == '__main__':
     from server import app
