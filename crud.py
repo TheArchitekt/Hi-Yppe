@@ -8,3 +8,8 @@ def new_user(user_email, user_password):
     user = User(user_email=user_email, user_password=user_password)
 
     return user
+
+
+if __name__ == '__main__':
+    from server import app
+    connect_to_db(app)
