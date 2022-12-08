@@ -38,7 +38,7 @@ class Sneaker(db.Model):
 
     sneaker_id = db.Column(db.Integer, autoincrement=True, primary_key=True)
     sneaker_name = db.Column(db.String)
-    sneaker_price = db.Column(Numeric(7, 2))
+    sneaker_price = db.Column(db.Numeric(7, 2))
     sneaker_description = db.Column(db.Text)
     release_date = db.Column(db.DateTime, db.Index('ix_sneakers_release_date', 'release_date'))
     sneaker_img_path = db.Column(db.String)
@@ -58,6 +58,10 @@ class Favorite(db.Model):
 
     def __repr__(self):
         return f"<Favorite favorite_id={self.favorite_id}>"
+
+
+
+
 
 
 if __name__ == "__main__":
