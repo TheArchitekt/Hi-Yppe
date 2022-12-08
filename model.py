@@ -43,6 +43,9 @@ class Sneaker(db.Model):
     release_date = db.Column(db.DateTime)
     sneaker_img_path = db.Column(db.String)
 
+    favorites = db.relationship("Favorite", back_populates="sneaker")
+
+
     def __repr__(self):
         return f"<Sneaker sneaker_id={self.sneaker_id} sneaker_name={self.sneaker_name} release_date={self.release_date}>"
 
