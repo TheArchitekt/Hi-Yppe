@@ -8,4 +8,4 @@ app = Flask(__name__)
 def home():
     """Homepage where users login"""
 
-    return
+    return render_template("home.html")
