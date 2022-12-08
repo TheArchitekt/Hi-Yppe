@@ -37,6 +37,20 @@ class Sneaker(db.Model):
     sneaker_price = db.Column(Numeric(7, 2))
     sneaker_description = db.Column(db.Text)
     release_date = db.Column(db.DateTime, db.Index('ix_sneakers_release_date', 'release_date'))
+    sneaker_img_path = db.Column(db.String)
 
     def __repr__(self):
         return f"<Sneaker sneaker_id={self.sneaker_id} sneaker_name={self.sneaker_name} release_date={self.release_date}>"
+
+
+class Favorite(db.Model):
+    """A user's favorites"""
+
+    __tablename__ = "favorites"
+
+    favorite_id = db.Column(db.Integer, primary_key=True, autoincrement=True)
+    sneaker_id = db.Column(db.Integer, db.ForeignKey("sneakers.sneaker_id"))
+    user_id = db.Column(db.Integer, db.ForeignKey("users.user_id"))
+
+    def __repr__(self):
+        return f"<Favorite favorite_id={self.favorite_id}>"
