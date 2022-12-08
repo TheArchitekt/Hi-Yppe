@@ -1,0 +1,25 @@
+user
+-------
+user_id integer primary key autoincrement
+user_email string unique
+user_password string
+user_name string 35
+
+brand
+-----------
+brand_id integer primary key autoincrement
+brand_name string
+
+sneakers
+--------
+sneaker_id integer primary key autoincrement
+sneaker_name string
+sneaker_price integer
+sneaker_description text
+release_date DateTime index
+
+favorites
+--------
+favorite_id integer primary key autoincrement
+sneaker_id integer foreign key
+user_id integer foreign key
