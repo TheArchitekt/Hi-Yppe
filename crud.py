@@ -10,6 +10,16 @@ def new_user(user_email, user_password):
     return user
 
 
+def new_brand(brand_name):
+    """"""
+
+def new_sneaker(sneaker_name, sneaker_price, sneaker_description, release_date, sneaker_img_path):
+    """Creates a new sneaker"""
+    sneaker = Sneaker(sneaker_name=sneaker_name, sneaker_price=sneaker_price,
+                     sneaker_description=sneaker_description,
+                     release_date=release_date, sneaker_img_path=sneaker_img_path)
+    return sneaker
+
 if __name__ == '__main__':
     from server import app
     connect_to_db(app)
