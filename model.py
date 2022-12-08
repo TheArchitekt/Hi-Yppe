@@ -1,3 +1,7 @@
+from datetime import datetime
+from flask_sqlalchemy import SQLAlchemy
+
+db = SQLAlchemy()
 
 
 class User(db.Model):
@@ -54,3 +58,7 @@ class Favorite(db.Model):
 
     def __repr__(self):
         return f"<Favorite favorite_id={self.favorite_id}>"
+
+
+if __name__ == "__main__":
+    from server import app
