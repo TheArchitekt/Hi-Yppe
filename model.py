@@ -56,6 +56,10 @@ class Favorite(db.Model):
     sneaker_id = db.Column(db.Integer, db.ForeignKey("sneakers.sneaker_id"))
     user_id = db.Column(db.Integer, db.ForeignKey("users.user_id"))
 
+    user = db.relationship("User", back_populates="favorites")
+    sneaker = db.relationship("Sneaker", back_populates="favorites")
+
+
     def __repr__(self):
         return f"<Favorite favorite_id={self.favorite_id}>"
 
