@@ -26,6 +26,13 @@ def new_sneaker(sneaker_name, sneaker_price, sneaker_description, release_date, 
     return sneaker
 
 
+def new_favorite(user, sneaker):
+    """Creates a new favorite sneaker for the user."""
+
+    favorite = Favorite(user=user, sneaker=sneaker)
+
+    return favorite
+
 
 if __name__ == '__main__':
     from server import app
