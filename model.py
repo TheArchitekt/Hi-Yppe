@@ -15,6 +15,9 @@ class User(db.Model):
     user_password = db.Column(db.String)
     user_name = db.Column(db.String)
 
+    favorites = db.relationship("Favorite", back_populates="user")
+
+
     def __repr__(self):
         return f"<User user_id={self.user_id} user_name={user_name} email={self.user_email}>"
 
