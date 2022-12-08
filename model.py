@@ -40,7 +40,7 @@ class Sneaker(db.Model):
     sneaker_name = db.Column(db.String)
     sneaker_price = db.Column(db.Numeric(7, 2))
     sneaker_description = db.Column(db.Text)
-    release_date = db.Column(db.DateTime, db.Index('ix_sneakers_release_date', 'release_date'))
+    release_date = db.Column(db.DateTime)
     sneaker_img_path = db.Column(db.String)
 
     def __repr__(self):
@@ -60,7 +60,15 @@ class Favorite(db.Model):
         return f"<Favorite favorite_id={self.favorite_id}>"
 
 
+def connect_to_db(flask_app, db_uri="postgresql:///sneakers", echo=True):
+    flask_app.config["SQLALCHEMY_DATABASE_URI"] = db_uri
+    flask_app.config["SQLALCHEMY_ECHO"] = echo
+    flask_app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
 
+    db.app = flask_app
+    db.init_app(flask_app)
+
+    print("DB is online!")
 
 
 
