@@ -9,6 +9,11 @@ def new_user(user_email, user_password):
 
     return user
 
+def get_user_email(user_email):
+    """Retrieves a user's email."""
+
+    return User.query.filter(User.user_email == user_email).first()
+
 
 def new_brand(brand_name):
     """Creates a new brand."""
