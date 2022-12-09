@@ -1,6 +1,6 @@
-from flask import Flask, render_template, request, session, redirect
+from flask import Flask, render_template, request, session, redirect, flash
 from model import connect_to_db, db
-
+import crud
 
 app = Flask(__name__)
 
