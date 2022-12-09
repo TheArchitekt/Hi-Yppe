@@ -1,5 +1,5 @@
 
-from model import db, User, Brand, Sneaker, Favorite, connect_to_db, flash
+from model import db, User, Brand, Sneaker, Favorite, connect_to_db
 
 
 def new_user(user_email, user_password):
