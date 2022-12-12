@@ -32,6 +32,14 @@ def create_account():
     return redirect("/")
 
 
+@app.route("/users")
+def all_users():
+    """List of all users"""
+    users =
+
+    return render_template("users.html", users=users)
+
+
 if __name__ == "__main__":
     connect_to_db(app)
     app.run(host="0.0.0.0", debug=True)
