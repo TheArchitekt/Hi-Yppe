@@ -9,6 +9,12 @@ def new_user(user_email, user_password):
 
     return user
 
+
+def get_users():
+    """Gets all users"""
+
+    return User.query.all()
+
 def get_user_email(user_email):
     """Retrieves a user's email."""
 
@@ -37,6 +43,9 @@ def new_favorite(user, sneaker):
     favorite = Favorite(user=user, sneaker=sneaker)
 
     return favorite
+
+
+
 
 
 if __name__ == '__main__':
