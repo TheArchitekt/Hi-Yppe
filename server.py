@@ -35,7 +35,7 @@ def create_account():
 @app.route("/users")
 def all_users():
     """List of all users"""
-    users =
+    users = crud.get_users()
 
     return render_template("users.html", users=users)
 
