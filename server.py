@@ -18,6 +18,7 @@ def create_account():
 
     user_email = request.form.get("user_email")
     user_password = request.form.get("user_password")
+    user_name = request.form.get("user_name")
 
     user = crud.get_user_email(user_email)
 
