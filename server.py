@@ -16,7 +16,7 @@ def home():
     return render_template("home.html")
 
 
-@app.route("/account", methods=["POST"])
+@app.route("/users", methods=["POST"])
 def create_account():
     """Creates a user account"""
 
