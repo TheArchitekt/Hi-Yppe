@@ -36,6 +36,30 @@ def create_account():
 
     return redirect("/")
 
+@app.route("/dashboard")
+def dashboard():
+    """Database Dashboard"""
+
+    return render_template("dashboard.html")
+
+@app.route("/login", methods=["POST"])
+def login_session():
+    """Log into the session"""
+
+    user_email = request.form.get("user_email")
+    user_password = request.form.get("user_password")
+    user_name = request.form.get("user_name")
+
+    user = crud.get_user_email(user_email)
+
+    if not user or user.user_password != user_password:
+        flash("Your email or password is incorrect.")
+    else:
+        session["member_name"] = user.user_name
+        flash(f"Welcome, {user.user_name}!")
+        return redirect("/dashboard")
+
+    return redirect("/")
 
 @app.route("/users")
 def all_users():
