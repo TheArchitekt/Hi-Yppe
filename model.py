@@ -22,16 +22,16 @@ class User(db.Model):
         return f"<User user_id={self.user_id} user_name={self.user_name} email={self.user_email}>"
 
 
-class Brand(db.Model):
-    """A brand."""
+# class Brand(db.Model):
+#     """A brand."""
 
-    __tablename__ = "brands"
+#     __tablename__ = "brands"
 
-    brand_id = db.Column(db.Integer, autoincrement=True, primary_key=True)
-    brand_name = db.Column(db.String)
+#     brand_id = db.Column(db.Integer, autoincrement=True, primary_key=True)
+#     brand_name = db.Column(db.String)
 
-    def __repr__(self):
-        return f"<Brand brand_id={self.brand_id}, brand_name={self.brand_name}>"
+#     def __repr__(self):
+#         return f"<Brand brand_id={self.brand_id}, brand_name={self.brand_name}>"
 
 
 class Sneaker(db.Model):
@@ -41,6 +41,7 @@ class Sneaker(db.Model):
 
     sneaker_id = db.Column(db.Integer, autoincrement=True, primary_key=True)
     sneaker_name = db.Column(db.String)
+    sneaker_brand = db.Column(db.String)
     sneaker_price = db.Column(db.Numeric(7, 2))
     sneaker_description = db.Column(db.Text)
     release_date = db.Column(db.DateTime)
