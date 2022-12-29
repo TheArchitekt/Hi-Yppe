@@ -36,6 +36,16 @@ def new_sneaker(sneaker_name, sneaker_brand, sneaker_price, sneaker_description,
                      release_date=release_date, sneaker_img_path=sneaker_img_path)
     return sneaker
 
+def get_sneakers():
+    """Retrieves all sneakers."""
+
+    return Sneaker.query.all()
+
+def get_sneaker_by_id(sneaker_id):
+    """Retrieves a sneaker by primary key."""
+
+    return Sneaker.query.get(sneaker_id)
+
 
 def new_favorite(user, sneaker):
     """Creates a new favorite sneaker for the user."""
