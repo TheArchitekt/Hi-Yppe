@@ -40,7 +40,18 @@ def create_account():
 def dashboard():
     """Database Dashboard"""
 
-    return render_template("dashboard.html")
+    sneakers = crud.get_sneakers()
+
+
+    return render_template("dashboard.html", sneakers=sneakers)
+
+@app.route("/dashboard/<sneaker_id>")
+def sneaker_page(sneaker_id):
+    """Shows a specific sneaker's page"""
+
+    sneaker = crud.get_sneaker_by_id(sneaker_id)
+
+    return render_template("sneaker_page.html", sneaker=sneaker)
 
 @app.route("/login", methods=["POST"])
 def login_session():
