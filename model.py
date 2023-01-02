@@ -51,7 +51,7 @@ class Sneaker(db.Model):
 
 
     def __repr__(self):
-        return f"<Sneaker sneaker_id={self.sneaker_id} sneaker_name={self.sneaker_name} release_date={self.release_date}>"
+        return f"<Sneaker sneaker_id={self.sneaker_id} sneaker_name={self.sneaker_name} release_date={self.release_date} sneaker_img_path={self.sneaker_img_path}>"
 
 
 class Favorite(db.Model):
