@@ -4,4 +4,17 @@
 {% block body %}
 <h1>Feel the Hi-Yppe</h1>
 
+<ul>
+    {% for sneaker in sneakers %}
+    <li>
+        <img src="{{ sneaker.sneaker_img_path }}" alt="">
+        <a href="/dashboard/{{ sneaker.sneaker_id}}">
+            {{sneaker.sneaker_name}}
+        </a>
+
+
+    </li>
+    {% endfor %}
+</ul>
+
 {% endblock %}
