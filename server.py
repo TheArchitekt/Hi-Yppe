@@ -66,7 +66,8 @@ def login_session():
     if not user or user.user_password != user_password:
         flash("Your email or password is incorrect.")
     else:
-        session["member_name"] = user.user_name
+        session["user_name"] = user.user_name
+        session["email"] = user.user_email
         flash(f"Welcome, {user.user_name}!")
         return redirect("/dashboard")
 
@@ -79,6 +80,24 @@ def all_users():
 
     return render_template("users.html", users=users)
 
+
+@app.route('/profile')
+def profile():
+    if 'email' in session:
+        user_email = session["email"]
+        user_name = session["user_name"]
+
+        return render_template('profile.html', user_email=user_email, user_name=user_name)
+
+    else:
+        return redirect("/")
+
+@app.route('/logout')
+def logout():
+
+    session.clear()
+
+    return redirect("/")
 
 if __name__ == "__main__":
     connect_to_db(app)
