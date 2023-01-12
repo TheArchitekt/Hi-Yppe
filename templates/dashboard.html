@@ -2,21 +2,42 @@
 {% block title %}Dashboard{% endblock %}
 
 {% block body %}
-<a href="/profile">Profile</a>
-<a href="/logout">Logout</a>
-<h1>Feel the Hi-Yppe</h1>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="#">Hi-Yppe</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
+        aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav">
+            <a class="nav-item nav-link" href="/profile">Profile</a>
+            <a class="nav-item nav-link" href="/logout">Logout</a>
+        </div>
+    </div>
+</nav>
+
+<h1 class="text-center">Feel the Hi-Yppe</h1>
 
 <ul>
-    {% for sneaker in sneakers %}
-    <li>
-        <img src="{{ sneaker.sneaker_img_path }}" alt="">
-        <a href="/dashboard/{{ sneaker.sneaker_id}}">
-            {{sneaker.sneaker_name}}
-        </a>
+    <div class="row">
+        {% for sneaker in sneakers %}
+        <div class="col-sm-12 cpl-md-6 col-lg-2">
+            <li class="list-unstyled">
+                <img src="{{ sneaker.sneaker_img_path }}" class="img-fluid img-thumbnail" alt="">
+                <div>
+                    <a href="/dashboard/{{ sneaker.sneaker_id}}">
+                        {{sneaker.sneaker_name}}
+                    </a>
+                </div>
+                <div>
+                    <a href="/new-favorite"> Add to Favorites</a>
+                </div>
 
-
-    </li>
-    {% endfor %}
+            </li>
+        </div>
+        {% endfor %}
+    </div>
 </ul>
 
 {% endblock %}

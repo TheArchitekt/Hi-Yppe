@@ -3,39 +3,66 @@
 
 {% block body %}
 
-<h1>Ready to feel the Hi-Yppe?</h1>
+<h1 class="text-center">Ready to feel the Hi-Yppe?</h1>
 
-<h2>Create Account</h2>
-<form action="/users" method="POST">
-    <p>
-        Email <input type="text" name="user_email">
-    </p>
+<ul class="nav nav-pills nav-justified mb-3" id="ex1" role="tablist">
+    <li class="nav-item" role="presentation">
+        <a class="nav-link active" id="tab-login" data-mdb-toggle="pill" href="#pills-login" role="tab"
+            aria-controls="pills-login" aria-selected="true">Login</a>
+    </li>
+    <li class="nav-item" role="presentation">
+        <a class="nav-link" id="tab-register" data-mdb-toggle="pill" href="#pills-register" role="tab"
+            aria-controls="pills-register" aria-selected="false">Register</a>
+    </li>
+</ul>
 
-    <p>
-        Password <input type="password" name="user_password">
-    </p>
 
-    <p>
-        Username <input type="text" name="user_name">
-    </p>
 
-    <p>
-        <input type="submit" value="Create Account">
-    </p>
-</form>
+<div class="tab-content">
+    <div class="tab-pane fade show active" id="pills-login" role="tabpanel" aria-labelledby="tab-login">
+        <form action="/login" method="POST">
 
-<h2>Login</h2>
-<form action="/login" method="POST">
-    <p>
-        Email <input type="text" name="user_email">
-    </p>
 
-    <p>
-        Password <input type="password" name="user_password">
-    </p>
+            <div class="form-outline mb-4">
+                <input type="email" id="loginName" class="form-control" name="user_email" />
+                <label class="form-label" for="loginName">Email</label>
+            </div>
 
-    <p>
-        <input type="submit" value="Login">
-    </p>
-</form>
+
+            <div class="form-outline mb-4">
+                <input type="password" id="loginPassword" class="form-control" name="user_password" />
+                <label class="form-label" for="loginPassword">Password</label>
+            </div>
+
+
+            <button type="submit" class="btn btn-primary btn-block mb-4" value="Login">Sign in</button>
+
+        </form>
+    </div>
+    <div class="tab-pane fade" id="pills-register" role="tabpanel" aria-labelledby="tab-register">
+        <form action="/users" method="POST">
+
+            <div class="form-outline mb-4">
+                <input type="text" id="registerUsername" class="form-control" name="user_name" />
+                <label class="form-label" for="registerUsername">Username</label>
+            </div>
+
+
+            <div class="form-outline mb-4">
+                <input type="email" id="registerEmail" class="form-control" name="user_email" />
+                <label class="form-label" for="registerEmail">Email</label>
+            </div>
+
+
+            <div class="form-outline mb-4">
+                <input type="password" id="registerPassword" class="form-control" name="user_password" />
+                <label class="form-label" for="registerPassword">Password</label>
+            </div>
+
+
+            <button type="submit" class="btn btn-primary btn-block mb-3" value="Create Account">Create Account</button>
+        </form>
+    </div>
+</div>
+
 {% endblock %}

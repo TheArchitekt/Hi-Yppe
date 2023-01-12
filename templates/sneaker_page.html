@@ -1,9 +1,26 @@
 {% extends 'base.html' %}
 
 {% block body %}
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="#">Hi-Yppe</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
+        aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
 
-<h1>{{ sneaker.sneaker_name }}</h1>
-<img src="{{ sneaker.sneaker_img_path }}" alt="">
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav">
+            <a class="nav-item nav-link" href="/dashboard">Dashboard</a>
+            <a class="nav-item nav-link" href="/profile">Profile</a>
+            <a class="nav-item nav-link" href="/logout">Logout</a>
+        </div>
+    </div>
+</nav>
+
+
+
+<h1 class="text-center">{{ sneaker.sneaker_name }}</h1>
+<img src="{{ sneaker.sneaker_img_path }}" class="img-fluid" alt="">
 <p>Brand: {{ sneaker.sneaker_brand }}</p>
 <p>Release Date: {{ sneaker.release_date }}</p>
 <p>Retail Price: {{ sneaker.sneaker_price }}</p>
