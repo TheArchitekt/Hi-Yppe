@@ -99,6 +99,26 @@ def logout():
 
     return redirect("/")
 
+
+@app.route("/new-favorite", methods=["GET","POST"])
+def new_favorite(sneaker_id):
+    """Adds a new favorite sneaker"""
+
+    user_email = session.get("user_email")
+
+    user = crud.get_user_email(user_email)
+
+    sneaker = crud.get_sneaker_by_id(sneaker_id)
+
+    favorite = crud.new_favorite(user, sneaker)
+
+    db.session.add(favorite)
+    db.session.commit()
+    flash("New favorite added!")
+
+    return render_template(profile.html, sneaker=sneaker)
+
+
 if __name__ == "__main__":
     connect_to_db(app)
     app.run(host="0.0.0.0", debug=True)

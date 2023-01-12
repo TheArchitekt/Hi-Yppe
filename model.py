@@ -68,7 +68,7 @@ class Favorite(db.Model):
 
 
     def __repr__(self):
-        return f"<Favorite favorite_id={self.favorite_id}>"
+        return f"<Favorite favorite_id={self.favorite_id}, sneaker_id={self.sneaker_id}>"
 
 
 def connect_to_db(flask_app, db_uri="postgresql:///sneakers", echo=True):
