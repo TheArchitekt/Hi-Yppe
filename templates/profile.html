@@ -19,6 +19,23 @@
 </nav>
 
 <h2 class="text-center">Favorites</h2>
+<ul>
+    <div class="row">
+        {% for fav in favorites %}
+        <div class="col-sm-12 cpl-md-6 col-lg-2">
+            <li class="list-unstyled">
+                <h1>{{ sneaker.sneaker_name }}</h1>
+                <img src="{{ sneaker.sneaker_img_path }}" class="img-fluid img-thumbnail" alt="">
+                <p>Brand: {{ sneaker.sneaker_brand }}</p>
+                <p>Release Date: {{ sneaker.release_date }}</p>
+                <p>Retail Price: {{ sneaker.sneaker_price }}</p>
+                <p>Description: {{ sneaker.sneaker_description }}</p>
+        </div>
+        </li>
 
+
+        {% endfor %}
+</ul>
+</div>
 
 {% endblock %}
