@@ -116,7 +116,7 @@ def new_favorite(sneaker_id):
     db.session.commit()
     flash("New favorite added!")
 
-    return render_template("profile.html", sneaker=sneaker)
+    return redirect("/dashboard")
 
 
 if __name__ == "__main__":
