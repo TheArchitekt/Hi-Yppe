@@ -100,7 +100,7 @@ def logout():
     return redirect("/")
 
 
-@app.route("/new-favorite", methods=["GET","POST"])
+@app.route("/new-favorite/<sneaker_id>", methods=["GET", "POST"])
 def new_favorite(sneaker_id):
     """Adds a new favorite sneaker"""
 
@@ -116,7 +116,7 @@ def new_favorite(sneaker_id):
     db.session.commit()
     flash("New favorite added!")
 
-    return render_template(profile.html, sneaker=sneaker)
+    return render_template("profile.html", sneaker=sneaker)
 
 
 if __name__ == "__main__":
