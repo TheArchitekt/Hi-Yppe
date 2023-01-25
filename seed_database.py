@@ -35,3 +35,14 @@ for sneaker in sneaker_data:
 
 model.db.session.add_all(sneakers_in_db)
 model.db.session.commit()
+
+for i in range(10):
+    user_email = f"test{i}@gmail.com"
+    user_password = "1234"
+    user_name = f"test{i}"
+
+    user = crud.new_user(user_email, user_password, user_name)
+
+    model.db.session.add(user)
+
+model.db.session.commit()
